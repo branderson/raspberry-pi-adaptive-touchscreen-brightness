@@ -1,0 +1,11 @@
+# Install to /etc/systemd/system/
+# Then systemctl daemon-reload && systemctl enable --now adjust-display-brightness.service
+[Unit]
+Description=Adjust display brightness based on ambient brightness and human detection
+
+[Service]
+EnvironmentFile=-/root/adjust-display-brightness.env
+ExecStart=/root/adjust-display-brightness-to-ambient-light.py
+
+[Install]
+WantedBy=multi-user.target
